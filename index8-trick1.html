@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            overflow: hidden;
+        }
+        main{
+            height: 100vh;
+            background-color: rgb(102, 102, 102);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+        }
+        main>h2{
+            position: absolute;
+            top: 20px;
+            left: 480px;
+            margin-bottom: 100px;
+            text-shadow: 0 0 3px #777474, 0 0 5px #050505;
+        }
+        main>figure{
+            width: 200px;
+            height: 300px;
+            border: 1px solid rgb(255, 251, 251);
+            /* background-color: white; */
+        }
+        main>figcaption:nth-of-type(1){
+            position: absolute;
+            left: 120px;
+            top: 100px;
+            font-size: 30px;
+        }
+        main>figcaption:nth-of-type(2){
+            position: absolute;
+            left: 420px;
+            top: 150px;
+            font-size: 30px;
+        }
+        main>figcaption:nth-of-type(3){
+            position: absolute;
+            left: 740px;
+            top: 100px;
+            font-size: 30px;
+        }
+        main>figcaption:nth-of-type(4){
+            position: absolute;
+            left: 1050px;
+            top: 150px;
+            font-size: 30px;
+        }
+        figure>img{
+            width: 100%;height:100%;
+            object-fit: cover;
+            position: relative;
+            filter: grayscale(100%);
+        }
+        figure>img:hover {
+           filter: none;
+
+        }
+        figure:nth-of-type(1){
+            margin-bottom: 40px;
+        }
+        figure:nth-of-type(2){
+            margin-top: 60px;
+        }
+        figure:nth-of-type(3){
+            margin-bottom: 40px;
+        }
+        figure:nth-of-type(4){
+            margin-top: 60px;
+        }
+        .dark{
+            display: flex;
+            width: 200%;
+            height: 300vh;
+            background: black;
+            position: absolute;
+            transform: rotate(35deg);
+            transition: 1s;
+            left: -200%;
+            top: 0;
+        }
+        .darkin{
+            left: -50%;
+            top: -50%;
+        }
+        #page{
+            width: 100%;height: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;left: 0;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: center;
+            padding-top: 100px;
+            transition: 1s;
+        }
+        #page>p{
+            color: white;
+            border: 1px solid white;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        #page>figure{
+            object-fit: cover;
+            object-position: center;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        #page>figure>img{
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            filter: none;
+            border: 1px solid white;
+            box-shadow: 4px 4px 8px 0 rgb(250, 250, 250);
+        }
+        #page>*{
+            /* width: 100%; */
+            display: flex;
+        }
+        #page>p{
+            margin: 10px;
+            font-size: 30px;
+            width: 500px;height: 400px;
+        }
+       
+        #page>span{
+            /* width: 100%; */
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            text-transform: uppercase;
+            color: white;
+            font-size: 60px;
+            justify-content: center;
+            cursor: pointer;
+            margin-top: 450px;
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <h2>Let's Know Artists Biography🖤</h2>
+    </main>
+    <div class="dark"></div>
+    <div id="page">
+        <figure>
+        <img src="" alt="">
+        <p></p>
+        </figure>
+        <span>⇠</span>
+    </div>
+    <script>
+        const arr =["./img/rihan.jpg", "./img/byonc.jpg", "./img/brith.jpg", "./img/jlo.jpg"]
+        const arr2=['Rihanna', 'Byonce', 'Britney', 'JenniferLopez']
+        const bio=['Robyn Rihanna Fenty was born on February 20, 1988, in Saint Michael, Barbados. She is the daughter of accountant Monica (née Braithwaite) and warehouse supervisor Ronald Fenty. Her mother is an Afro-Guyanese, while her father is a Barbadian of African, Irish, English, and Scottish descent',  "Beyoncé achieved fame in the late 1990s as the lead singer of the R&B group Destiny's Child and then launched a hugely successful solo career. Her hit solo albums included Dangerously in Love (2003), B'Day (2006), I Am…Sasha Fierce (2008), 4 (2011), Beyoncé (2013), and Lemonade (2016).", 'Britney Jean Spears is an American singer. Often referred to as the "Princess of Pop", she is credited with influencing the revival of teen pop during the late 1990s and early 2000s. After appearing in stage productions and television series, Spears signed with Jive Records in 1997 at age fifteen', 'Jennifer Lopez was born in 1969 into a family of Puerto Rican descent. Lopez took dance lessons throughout her childhood, and at age 16 she made her film debut with a small role in My Little Girl (1986). Her television break came in 1991 when she became a dancer on In Living Color.']
+
+
+
+
+        arr.map(function(val){
+            let img = document.createElement('figure')
+            img.innerHTML = `
+            <img src="${val}" alt="">
+            `
+            document.getElementById('main').appendChild(img)
+        })
+        arr2.map(function(fig){
+            let cap=document.createElement('figcaption')
+            cap.innerHTML=`
+            <figcaption>${fig}</figcaption>
+            `
+            document.getElementById('main').appendChild(cap)
+        })
+        bio.map(function(x){
+            let biog=document.createElement('p')
+            biog.innerHTML=`
+            <p>${x}</p>
+            `
+            document.getElementById('page').appendChild(biog)
+        })
+        
+
+      let _fig = document.querySelectorAll('main>figure')
+        _fig.forEach(function(val, index){
+            val.addEventListener('click', function(){
+                document.querySelector('.dark').classList.add('darkin')
+                document.querySelector('#page').style.height='100vh'
+                document.querySelector('#page>figure>img').setAttribute('src', arr[index])             
+                document.querySelector('#page>p').innerText=bio[index]             
+            })
+        })
+        // _fig.forEach(function(val, index){
+        //     val[0].addEventListener('click', function(){
+        //         document.write(bio[0])              
+        //     })
+        // })
+        document.querySelector('#page>span').addEventListener('click', function(){
+            document.querySelector('.dark').classList.remove('darkin')
+            document.querySelector('#page').style.height='0'
+        })
+    </script>
+</body>
+</html>
